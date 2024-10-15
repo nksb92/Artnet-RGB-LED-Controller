@@ -1,0 +1,26 @@
+{
+    "files.associations": {
+        "*.tcc": "cpp",
+        "exception": "cpp",
+        "fstream": "cpp",
+        "iosfwd": "cpp",
+        "new": "cpp",
+        "ostream": "cpp",
+        "sstream": "cpp",
+        "streambuf": "cpp",
+        "array": "cpp",
+        "deque": "cpp",
+        "string": "cpp",
+        "unordered_map": "cpp",
+        "unordered_set": "cpp",
+        "vector": "cpp",
+        "string_view": "cpp",
+        "memory": "cpp",
+        "random": "cpp",
+        "initializer_list": "cpp",
+        "esp32-hal-spi.h": "c",
+        "esp32-hal.h": "c",
+        "gpio.h": "c",
+        "esp_intr_alloc.h": "c"
+    }
+}
