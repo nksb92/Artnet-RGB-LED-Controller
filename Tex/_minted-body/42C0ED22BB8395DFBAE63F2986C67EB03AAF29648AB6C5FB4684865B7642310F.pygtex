@@ -1,0 +1,20 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{p}{[}
+\PYG{p}{\PYGZob{}}
+\PYG{+w}{	}\PYG{n+nt}{\PYGZdq{}name\PYGZdq{}}\PYG{+w}{ }\PYG{p}{:}\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}BEISPIEL\PYGZdq{}}\PYG{p}{,}
+\PYG{+w}{	}\PYG{n+nt}{\PYGZdq{}start\PYGZdq{}}\PYG{+w}{ }\PYG{p}{:}\PYG{+w}{ }\PYG{p}{[}
+\PYG{+w}{	}\PYG{l+s+s2}{\PYGZdq{}SYMBOL\PYGZus{}START\PYGZdq{}}\PYG{p}{,}
+\PYG{+w}{	}\PYG{l+s+s2}{\PYGZdq{}SYMBOL\PYGZus{}DEF\PYGZus{}0\PYGZdq{}}\PYG{p}{,}
+\PYG{+w}{	}\PYG{l+s+s2}{\PYGZdq{}0x20002400\PYGZdq{}}
+\PYG{+w}{	}\PYG{p}{],}
+\PYG{+w}{	}\PYG{n+nt}{\PYGZdq{}end\PYGZdq{}}\PYG{+w}{ }\PYG{p}{:}\PYG{+w}{ }\PYG{p}{[}
+\PYG{+w}{	}\PYG{l+s+s2}{\PYGZdq{}SYMBOL\PYGZus{}END\PYGZdq{}}\PYG{p}{,}
+\PYG{+w}{	}\PYG{l+s+s2}{\PYGZdq{}SYMBOL\PYGZus{}DEF\PYGZus{}1 + 15\PYGZdq{}}\PYG{p}{,}
+\PYG{+w}{	}\PYG{l+s+s2}{\PYGZdq{}0x200025FF\PYGZdq{}}
+\PYG{+w}{	}\PYG{p}{],}
+\PYG{+w}{	}\PYG{n+nt}{\PYGZdq{}segment\PYGZdq{}}\PYG{+w}{ }\PYG{p}{:}\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}Beispielsegment\PYGZdq{}}\PYG{p}{,}
+\PYG{+w}{	}\PYG{n+nt}{\PYGZdq{}sequenze\PYGZdq{}}\PYG{+w}{ }\PYG{p}{:}\PYG{+w}{ }\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{,}
+\PYG{+w}{	}\PYG{n+nt}{\PYGZdq{}change\PYGZus{}flag\PYGZdq{}}\PYG{+w}{ }\PYG{p}{:}\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}None\PYGZdq{}}
+\PYG{p}{\PYGZcb{}}
+\PYG{p}{]}
+\end{Verbatim}

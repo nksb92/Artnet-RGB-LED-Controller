@@ -2,6 +2,7 @@
 #include <FastLED.h>
 #include "display.h"
 #include "EtherArtnet.h"
+#include "rotary_encoder.h"
 
 #define STEP 3
 

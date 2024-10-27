@@ -6,6 +6,13 @@
 
 #endif // ARDUINO_ESP32S3_DEV
 
+CON_STATUS con_status_loop_0 = DISCONNECTED;
+CON_STATUS con_status_loop_1 = DISCONNECTED;
+
+BUTTON_STATES button_state = NOT_PRESSED;
+
+uint8_t main_menu_state = 0;
+
 void setup()
 {
     artnet_mutex = xSemaphoreCreateMutex();
@@ -16,19 +23,15 @@ void setup()
 
     delay(2000);
     display.init();
-    display.main_menu();
-
-    delay(1000);
-    display.clear_display();
 
     artnet.init();
-    artnet.check_cable_status();
+    // artnet.check_cable_status();
     Serial.println("Init Done");
 
     xTaskCreatePinnedToCore(
         loop_0,  // Function to implement the task
         "loop2", // Name of the task
-        2000, // Stack size in bytes
+        8000,    // Stack size in bytes
         NULL,    // Task input parameter
         0,       // Priority of the task
         NULL,    // Task handle.
@@ -45,29 +48,28 @@ void loop()
 // runs on core 0
 void loop_0(void *parameters)
 {
-    Serial.println("Core 0 running.");
+    // Serial.println("Core 0 running.");
+    rot_enc.init();
+    display.show_main_menu(con_status_loop_0, 0);
     while (1)
     {
+        rot_enc.update();
+        button_state = rot_enc.get_enc_press_state();
+        display.update();
         // take the mutex object if available
         // ensures that the method is not called by both cores at the same time
-        if (xSemaphoreTake(artnet_mutex, portTICK_PERIOD_MS * 2))
+        if (xSemaphoreTake(artnet_mutex, 10))
         {
-            switch (artnet.get_connection_status())
-            {
-            case CONNECTED:
-                display.main_menu();
-                break;
-
-            case DISCONNECTED:
-                // display.main_menu();
-                break;
-
-            default:
-                break;
-            }
-
+            con_status_loop_0 = artnet.get_connection_status();
             // release mutex object to release resource
             xSemaphoreGive(artnet_mutex);
+        }
+
+        if (button_state == PRESSED)
+        {
+            display.reset_timeout();
+            main_menu_state = ++main_menu_state % MAX_MENU_ITEMS;
+            display.show_main_menu(con_status_loop_0, main_menu_state);
         }
     }
 }
@@ -78,47 +80,48 @@ void loop_1()
 
     // take the mutex object if available
     // ensures that the method is not called by both cores at the same time
-    if (xSemaphoreTake(artnet_mutex, portTICK_PERIOD_MS))
+    if (xSemaphoreTake(artnet_mutex, 10))
     {
-        switch (artnet.get_connection_status())
-        {
-        case CONNECTED:
-            if (millis() - last_update >= update_time)
-            {
-                hsv_value.hue++;
-                temp_val = hsv_value;
-                dmx_address = 0;
-                for (int j = 0; j < 2; j++)
-                {
-                    for (int i = 0; i < segments; i++)
-                    {
-                        hsv2rgb_rainbow(temp_val, rgb_val);
-                        data[dmx_address] = rgb_val.r;
-                        data[dmx_address + 1] = rgb_val.g;
-                        data[dmx_address + 2] = rgb_val.b;
-                        temp_val.hue += STEP;
-                        dmx_address += 3;
-                    }
-                    data[dmx_address] = 255;
-                    dmx_address += 1;
-                    temp_val.h += 127;
-                }
-                artnet.set_data(data);
-                last_update = millis();
-            }
-            artnet.stream_universe(universe);
-            break;
-        case DISCONNECTED:
-
-            artnet.connect();
-            break;
-
-        default:
-            break;
-        }
-
+        con_status_loop_1 = artnet.get_connection_status();
         // release mutex object to release resource
         xSemaphoreGive(artnet_mutex);
+    }
+
+    switch (con_status_loop_1)
+    {
+    case CONNECTED:
+        if (millis() - last_update >= update_time)
+        {
+            hsv_value.hue++;
+            temp_val = hsv_value;
+            dmx_address = 0;
+            for (int j = 0; j < 2; j++)
+            {
+                for (int i = 0; i < segments; i++)
+                {
+                    hsv2rgb_rainbow(temp_val, rgb_val);
+                    data[dmx_address] = rgb_val.r;
+                    data[dmx_address + 1] = rgb_val.g;
+                    data[dmx_address + 2] = rgb_val.b;
+                    temp_val.hue += STEP;
+                    dmx_address += 3;
+                }
+                data[dmx_address] = 255;
+                dmx_address += 1;
+                temp_val.h += 127;
+            }
+            artnet.set_data(data);
+            last_update = millis();
+        }
+        artnet.stream_universe(universe);
+        break;
+
+    case DISCONNECTED:
+        artnet.connect();
+        break;
+
+    default:
+        break;
     }
 }
 

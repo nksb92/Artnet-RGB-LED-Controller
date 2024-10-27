@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{x}{		//=================================================================}
+\PYG{x}{		// SEGMENT: Beispielsegment}
+\PYG{x}{		if (SEGMENT\PYGZus{}NUMBER==0) \PYGZob{}}
+\PYG{x}{			}
+\PYG{x}{			define exported symbol SYMBOL\PYGZus{}DEF\PYGZus{}0 = 0x20002400;}
+\PYG{x}{			define exported symbol SYMBOL\PYGZus{}DEF\PYGZus{}1 = 0x200025F0;}
+\PYG{x}{			}
+\PYG{x}{			define exported symbol SYMBOL\PYGZus{}START = SYMBOL\PYGZus{}DEF\PYGZus{}0;}
+\PYG{x}{			define exported symbol SYMBOL\PYGZus{}END   = SYMBOL\PYGZus{}DEF\PYGZus{}1 + 15;}
+\PYG{x}{			define region BEISPIEL = mem:[from SYMBOL\PYGZus{}START to SYMBOL\PYGZus{}END];}
+\PYG{x}{		\PYGZcb{}}
+\end{Verbatim}

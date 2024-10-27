@@ -1,0 +1,127 @@
+(kicad_sch
+	(version 20231120)
+	(generator "eeschema")
+	(generator_version "8.0")
+	(uuid "941a36f0-86a7-4375-9108-9f9aed2a535a")
+	(paper "A4")
+	(lib_symbols)
+	(sheet
+		(at 135.255 71.755)
+		(size 25.4 20.955)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "0a69c683-1c29-46d5-8104-f3779973f4ce")
+		(property "Sheetname" "XIAO ESP32-S3"
+			(at 135.255 71.0434 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "xiao_esp32-s3.kicad_sch"
+			(at 135.255 93.2946 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "artnet_rgb_led_controller"
+				(path "/941a36f0-86a7-4375-9108-9f9aed2a535a"
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 134.62 31.75)
+		(size 26.67 29.845)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "0df3fe4c-6ee6-470c-a415-096bb6608b0b")
+		(property "Sheetname" "ESP32-S3 Dev Kit C"
+			(at 134.62 31.0384 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "esp32-s3_dev_kit_c.kicad_sch"
+			(at 134.62 62.1796 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "artnet_rgb_led_controller"
+				(path "/941a36f0-86a7-4375-9108-9f9aed2a535a"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 59.69 31.75)
+		(size 26.67 20.955)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "187104d3-59a0-44ea-8566-6c9176a06cde")
+		(property "Sheetname" "Power Supply"
+			(at 59.69 31.0384 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "untitled.kicad_sch"
+			(at 59.69 53.2896 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "artnet_rgb_led_controller"
+				(path "/941a36f0-86a7-4375-9108-9f9aed2a535a"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+)

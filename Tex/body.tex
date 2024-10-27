@@ -1,0 +1,96 @@
+% Preheader
+\include{./includes/includes}
+% Document
+\begin{document}
+	
+	% Add title without page numbering or any other format
+	\pagenumbering{Roman}
+	\pagestyle{empty}
+	\include{./includes/deckblatt}
+
+	% Display page numbering
+	\pagestyle{plain}
+
+	% Table of contents
+	\phantomsection
+	\addcontentsline{toc}{section}{Contents}
+	\tableofcontents
+	\newpage
+	
+	\renewcommand{\arraystretch}{1.5}
+	
+	% abbreviations
+	\include{./includes/Abkuerzungsverzeichnis}
+	\newpage
+	
+	\renewcommand{\arraystretch}{1.25}
+	% list of figures
+	\phantomsection
+	\addcontentsline{toc}{section}{\listfigurename}
+	\listoffigures
+	\newpage
+
+	% list of tables
+	\phantomsection
+	\addcontentsline{toc}{section}{\listtablename}
+	\listoftables
+	
+	\newpage
+	
+	% list of Programmcode
+	\phantomsection
+	\addcontentsline{toc}{section}{Source Code}
+%	\lstlistoflistings	
+	\listoflistings
+	\newpage
+	
+	% Include the abstract
+	%\phantomsection
+	%\input{./chapter/abstract}
+	%\newpage
+	
+	% nomenklatur
+	%\input{./chapter/nomenklatur}
+	%\newpage
+
+	% change page and chaper numbering
+	\pagenumbering{arabic}
+	\setcounter{section}{0}
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%%%%%%%%%  MAIN PART
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	% ADD YOUR CHAPTER HERE
+	\input{./chapter/pre_dev}
+	\newpage
+	%\input{./chapter/Problemstellung}
+	%\newpage
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%%%%%%%%%  Literature and Appendix
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	% switch page numberin to roman
+	\pagenumbering{Roman}
+
+	% set counter for page numbering.
+	% !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	% !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	% Has to be done manually !!!!!!!!!!!!!!!!!!!!!!
+	\setcounter{page}{7}
+
+	% Literature
+	\phantomsection
+	\addcontentsline{toc}{section}{References}
+	\bibliography{./includes/literatur}
+	\newpage
+
+	% Appendix
+	%\appendix
+
+	% Pack den Anhang hier rein
+	%\include{./chapter/Anhang}
+
+\end{document}
